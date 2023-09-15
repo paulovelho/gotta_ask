@@ -2,21 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
-import 'package:gotta_ask/deck/deck-page.dart';
 import 'package:gotta_ask/state.dart';
 
-class ShortcutsWidget extends StatefulWidget {
-  const ShortcutsWidget({
+class DeckShortcutsWidget extends StatefulWidget {
+  const DeckShortcutsWidget({
     super.key,
     required this.page,
   });
   final Widget page;
 
   @override
-  State<ShortcutsWidget> createState() => _ShortcutsWidget();
+  State<DeckShortcutsWidget> createState() => _DeckShortcutsWidget();
 }
 
-class _ShortcutsWidget extends State<ShortcutsWidget> {
+class _DeckShortcutsWidget extends State<DeckShortcutsWidget> {
   FocusNode focusNode = FocusNode();
   late CardSwiperController controller;
 
@@ -33,6 +32,9 @@ class _ShortcutsWidget extends State<ShortcutsWidget> {
         break;
       case LogicalKeyboardKey.arrowRight:
         controller.swipeRight();
+        break;
+      case LogicalKeyboardKey.keyR:
+        controller.undo();
         break;
     }
   }

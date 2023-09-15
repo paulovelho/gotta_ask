@@ -1,11 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:gotta_ask/homepage.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:gotta_ask/database/bootstrap.dart';
+import 'package:gotta_ask/pages/homepage.dart';
 import 'package:gotta_ask/state.dart';
 import 'package:gotta_ask/theme.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+  await Bootstrap().install();
+  runApp(EasyLocalization(
+    path: "assets/translations",
+    supportedLocales: const [
+      Locale('pt'),
+      Locale('en'),
+    ],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -18,7 +30,10 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: platypusTheme(),
-        home: const HomePage(title: 'Gotta Ask'),
+        home: const HomePage(title: "Gotta Ask"),
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
       ),
     );
   }

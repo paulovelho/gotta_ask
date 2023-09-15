@@ -1,0 +1,10 @@
+{
+  "helloWorld": "Olá!",
+	"appTitle": "Gotta Ask",
+	"preferencesTitle": "Configurações",
+	"languages": "Idioma",
+	"langPt": "Português",
+	"langEn": "Inglês",
+	"packages": "Pacotes",
+	"viewDb": "Ver DB"
+}

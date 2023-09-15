@@ -1,0 +1,10 @@
+{
+  "helloWorld": "Hello World!",
+	"appTitle": "Gotta Ask",
+	"preferencesTitle": "Preferences",
+	"languages": "Languages",
+	"langPt": "Portuguese",
+	"langEn": "English",
+	"packages": "Packages",
+	"viewDb": "View DB"
+}

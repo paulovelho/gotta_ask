@@ -14,3 +14,11 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## database files generation
+generate with `dart run build_runner build`
+keep dev with `dart run build_runner watch`
+
+
+## internationalization files generation
+`flutter gen-l10n`

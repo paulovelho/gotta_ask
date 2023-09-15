@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
-import 'package:gotta_ask/deck/deck-controls.dart';
-import 'package:gotta_ask/shortcuts.dart';
+import 'package:gotta_ask/pages/deck/deck-controls.dart';
 import 'package:provider/provider.dart';
-import 'package:gotta_ask/deck/questions/question-card.dart';
+import 'package:gotta_ask/pages/deck/question-card.dart';
 import 'package:gotta_ask/state.dart';
-import 'deck-builder/list.dart';
 
 class Deck extends StatefulWidget {
   const Deck({
@@ -17,7 +15,6 @@ class Deck extends StatefulWidget {
 }
 
 class DeckPage extends State<Deck> {
-  final cards = questions.map(QuestionCard.new).toList();
   late CardSwiperController controller;
 
   @override
@@ -30,6 +27,7 @@ class DeckPage extends State<Deck> {
   Widget build(BuildContext context) {
     var appState = context.watch<AppState>();
     controller = appState.controller;
+    final List<QuestionCard> cards = appState.deck.getDeck();
 
     return Scaffold(
       body: SafeArea(

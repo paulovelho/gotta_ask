@@ -1,0 +1,24 @@
+{
+	version: 1.1,
+	name: "paulovelho",
+	title: "Basic questions",
+	data: [
+"If you had to be a vegetable, which vegetable would you choose to be?",
+"If you had to be a fruit, which fruit would you choose to be?",
+"If you were a potato, how would you like to be eaten?",
+"Would you rather marry a swan or a goat?",
+"If you had to lose a limb, which one you would miss the less?",
+"Would you rather be blind or lose both arms?",
+"Would you rather lose a leg or have your internet history open to the world?",
+"Would you rather lose the ability to differentiate a baby from a muffin or change your sex every time you sneeze?",
+"Would you rather fly or stop time?",
+"Which super power you would like to have?",
+"Would you rather eat a chicken muffin or a strawberry lasagna?",
+"Do you preffer a 42ºC heat or a -20ºC cold?",
+"If you could choose any event from the past to witness, which would you choose?",
+"If you could choose any event from the future to witness, which would you choose?",
+"What would be the name of your biography?",
+"If there were a movie from your life, who would play you?"
+]
+}
+
