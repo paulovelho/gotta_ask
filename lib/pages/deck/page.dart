@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gotta_ask/pages/deck/deck-shortcuts.dart';
+import 'package:gotta_ask/pages/deck/deck_shortcuts.dart';
 import 'package:gotta_ask/pages/deck/deck.dart';
 
 class CardPage extends StatelessWidget {

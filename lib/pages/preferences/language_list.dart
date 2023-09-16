@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:gotta_ask/main.dart';
 import 'package:gotta_ask/pages/shared/box-title.dart';
 import 'package:gotta_ask/state.dart';
 import 'package:provider/provider.dart';
@@ -22,7 +21,6 @@ class _LanguageFlipper extends State<LanguageFlipper> {
       groupValue: _activeLanguage,
       onChanged: (String? value) {
         setState(() {
-          print("setting locale $value");
           context.setLocale(Locale(value ?? "en"));
           state.setLanguage(value ?? "");
           _activeLanguage = value;

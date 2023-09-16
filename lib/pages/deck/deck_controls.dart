@@ -1,9 +1,7 @@
-import 'package:drift_db_viewer/drift_db_viewer.dart';
 import 'package:flutter/material.dart';
 import 'package:gotta_ask/pages/preferences/page.dart';
 import 'package:provider/provider.dart';
 import 'package:gotta_ask/state.dart';
-import 'package:gotta_ask/database/database.dart';
 
 class DeckControl extends StatefulWidget {
   const DeckControl({
@@ -41,7 +39,7 @@ class DeckControlWidget extends State<DeckControl> {
         children: [
           FloatingActionButton(
             heroTag: "undo",
-            onPressed: controller.undo,
+            onPressed: controller.unswipe,
             child: const Icon(Icons.rotate_left),
           ),
           FloatingActionButton(
@@ -56,7 +54,7 @@ class DeckControlWidget extends State<DeckControl> {
           ),
           FloatingActionButton(
             heroTag: "top",
-            onPressed: controller.swipeTop,
+            onPressed: controller.swipeUp,
             child: const Icon(Icons.keyboard_arrow_up),
           ),
           FloatingActionButton(

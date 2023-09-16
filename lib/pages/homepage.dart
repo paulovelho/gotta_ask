@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gotta_ask/pages/deck/page.dart';
-import 'package:gotta_ask/pages/preferences/page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({

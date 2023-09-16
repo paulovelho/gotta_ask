@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_card_swiper/flutter_card_swiper.dart';
+import 'package:appinio_swiper/appinio_swiper.dart';
 import 'package:gotta_ask/state.dart';
 
 class DeckShortcutsWidget extends StatefulWidget {
@@ -17,15 +17,15 @@ class DeckShortcutsWidget extends StatefulWidget {
 
 class _DeckShortcutsWidget extends State<DeckShortcutsWidget> {
   FocusNode focusNode = FocusNode();
-  late CardSwiperController controller;
+  late AppinioSwiperController controller;
 
   void shortcutManager(LogicalKeyboardKey key) {
     switch (key) {
       case LogicalKeyboardKey.arrowUp:
-        controller.swipeTop();
+        controller.swipeUp();
         break;
       case LogicalKeyboardKey.arrowDown:
-        controller.swipeBottom();
+        controller.swipeDown();
         break;
       case LogicalKeyboardKey.arrowLeft:
         controller.swipeLeft();
@@ -34,7 +34,7 @@ class _DeckShortcutsWidget extends State<DeckShortcutsWidget> {
         controller.swipeRight();
         break;
       case LogicalKeyboardKey.keyR:
-        controller.undo();
+        controller.unswipe();
         break;
     }
   }

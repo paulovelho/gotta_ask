@@ -43,7 +43,7 @@ class _PackageList extends State<PackageList> {
             BoxShadow(
               color: theme.canvasColor,
               blurRadius: 2.0,
-              offset: Offset(2.0, 2.0),
+              offset: const Offset(2.0, 2.0),
             ),
           ],
         ),

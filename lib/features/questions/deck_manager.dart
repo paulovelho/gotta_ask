@@ -3,18 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
 import 'package:gotta_ask/features/packages/model.dart';
 import 'package:random_color/random_color.dart';
-
-import 'package:gotta_ask/pages/deck/question-card.dart';
 import 'package:gotta_ask/features/questions/model.dart';
 import 'package:gotta_ask/database/database.dart';
-import 'package:gotta_ask/pages/deck/card-model.dart';
+import 'package:gotta_ask/pages/deck/card_model.dart';
 
 class DeckManager {
-  static final DeckManager _instance = DeckManager._internal();
-  factory DeckManager() {
-    return _instance;
-  }
-  DeckManager._internal() {}
+  DeckManager._privateConstructor() {}
+  static final DeckManager instance = DeckManager._privateConstructor();
 
   DatabaseInstance db() {
     return Database.instance.getDb();
@@ -35,11 +30,14 @@ class DeckManager {
 
   List<Package> packages = [];
   Future<String> packageName(int id) async {
+    Package? p = packages.firstWhereOrNull((p) => p.id == id);
+    return p?.title ?? "unknown";
+  }
+
+  Future<void> loadPackagesCache() async {
     if (packages.isEmpty) {
       packages = await db().getPackageList();
     }
-    Package? p = packages.firstWhereOrNull((p) => p.id == id);
-    return p?.title ?? "unknown";
   }
 
   Color getRandomColor() =>
@@ -48,8 +46,8 @@ class DeckManager {
   final Color gradientColor = Colors.black26.withOpacity(1);
   final String package = "basic";
 
-  List<QuestionCard> getDeck() {
-    return getQuestions().map(QuestionCard.new).toList();
+  List<CardModel> getDeck() {
+    return getQuestions();
   }
 
   Future<CardModel> getCardFromModel(Question q) async {
@@ -63,6 +61,7 @@ class DeckManager {
   }
 
   Future<List<CardModel>> getCards() async {
+    loadPackagesCache();
     List<Question> cards = await db().getSome(await activePackages());
     return await Future.wait(
         cards.map((q) async => await getCardFromModel(q)).toList());

@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:gotta_ask/state.dart';
-import 'card-model.dart';
+import 'card_model.dart';
 
 class QuestionCard extends StatelessWidget {
   final CardModel question;
 
-  const QuestionCard(
-    this.question, {
+  const QuestionCard({
+    required this.question,
     Key? key,
   }) : super(key: key);
-
-  _openPreferences() async {}
 
   @override
   Widget build(BuildContext context) {

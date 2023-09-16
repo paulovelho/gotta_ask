@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_card_swiper/flutter_card_swiper.dart';
-import 'package:gotta_ask/pages/deck/deck-controls.dart';
+import 'package:appinio_swiper/appinio_swiper.dart';
+import 'package:gotta_ask/pages/deck/card_model.dart';
+import 'package:gotta_ask/pages/deck/deck_controls.dart';
 import 'package:provider/provider.dart';
-import 'package:gotta_ask/pages/deck/question-card.dart';
+import 'package:gotta_ask/pages/deck/question_card.dart';
 import 'package:gotta_ask/state.dart';
 
 class Deck extends StatefulWidget {
@@ -15,41 +16,61 @@ class Deck extends StatefulWidget {
 }
 
 class DeckPage extends State<Deck> {
-  late CardSwiperController controller;
-
   @override
   void dispose() {
-    controller.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     var appState = context.watch<AppState>();
-    controller = appState.controller;
-    final List<QuestionCard> cards = appState.deck.getDeck();
+    var controller = appState.controller;
+    final List<CardModel> cards = appState.deck.getDeck();
 
     return Scaffold(
       body: SafeArea(
         child: Column(
           children: [
             Flexible(
-              child: CardSwiper(
+              child: AppinioSwiper(
+                backgroundCardsCount: 3,
+                swipeOptions: const AppinioSwipeOptions.all(),
+                unlimitedUnswipe: true,
                 controller: controller,
-                cardsCount: cards.length,
+                onSwiping: (AppinioSwiperDirection direction) {
+                  debugPrint(direction.toString());
+                },
                 onSwipe: _onSwipe,
-                onUndo: _onUndo,
-                numberOfCardsDisplayed: 3,
-                backCardOffset: const Offset(-45, 50),
-                padding: const EdgeInsets.all(24.0),
-                cardBuilder: (
-                  context,
-                  index,
-                  horizontalThresholdPercentage,
-                  verticalThresholdPercentage,
-                ) =>
-                    cards[index],
+                padding: const EdgeInsets.only(
+                  left: 50,
+                  right: 25,
+                  top: 50,
+                  bottom: 40,
+                ),
+                cardsSpacing: 20,
+                unswipe: _onUndo,
+//                onEnd: _onEnd,
+                cardsCount: cards.length,
+                cardsBuilder: (BuildContext context, int index) {
+                  return QuestionCard(question: cards[index]);
+                },
               ),
+              // child: AppinioSwiper(
+              //   controller: controller,
+              //   cardsCount: cards.length,
+              //   onSwipe: _onSwipe,
+              //   onUndo: _onUndo,
+              //   numberOfCardsDisplayed: 3,
+              //   backCardOffset: const Offset(-45, 50),
+              //   padding: const EdgeInsets.all(24.0),
+              //   cardBuilder: (
+              //     context,
+              //     index,
+              //     horizontalThresholdPercentage,
+              //     verticalThresholdPercentage,
+              //   ) =>
+              //       cards[index],
+              // ),
             ),
             const DeckControl(),
           ],
@@ -59,24 +80,17 @@ class DeckPage extends State<Deck> {
   }
 
   bool _onSwipe(
-    int previousIndex,
-    int? currentIndex,
-    CardSwiperDirection direction,
+    int index,
+    AppinioSwiperDirection direction,
   ) {
     debugPrint(
-      'The card $previousIndex was swiped to the ${direction.name}. Now the card $currentIndex is on top',
+      'The card $index was swiped to the ${direction.name}.',
     );
     return true;
   }
 
-  bool _onUndo(
-    int? previousIndex,
-    int currentIndex,
-    CardSwiperDirection direction,
-  ) {
-    debugPrint(
-      'The card $currentIndex was undod from the ${direction.name}',
-    );
+  bool _onUndo(bool unswipe) {
+    debugPrint('unswipe: $unswipe');
     return true;
   }
 }

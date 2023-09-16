@@ -1,12 +1,11 @@
-import 'package:easy_localization/easy_localization.dart';
+import 'package:appinio_swiper/appinio_swiper.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_card_swiper/flutter_card_swiper.dart';
-import 'package:gotta_ask/features/questions/deck-manager.dart';
+import 'package:gotta_ask/features/questions/deck_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AppState extends ChangeNotifier {
-  var controller = CardSwiperController();
-  DeckManager deck = DeckManager();
+  var controller = AppinioSwiperController();
+  DeckManager deck = DeckManager.instance;
   String defaultLanguage = "en";
   String activeLanguage = "";
 

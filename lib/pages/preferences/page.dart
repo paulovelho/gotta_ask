@@ -1,13 +1,12 @@
 import 'package:drift_db_viewer/drift_db_viewer.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:gotta_ask/database/database.dart';
-import 'package:gotta_ask/pages/preferences/language-list.dart';
-import 'package:gotta_ask/pages/preferences/package-list.dart';
+import 'package:gotta_ask/pages/preferences/language_list.dart';
+import 'package:gotta_ask/pages/preferences/package_list.dart';
 
 class PreferencesPage extends StatelessWidget {
-  PreferencesPage({super.key});
+  const PreferencesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
