@@ -6,5 +6,34 @@
 	"langPt": "Portuguese",
 	"langEn": "English",
 	"packages": "Packages",
-	"viewDb": "View DB"
+	"viewDb": "View DB",
+
+	"about": "About",
+
+	"versionText": "Installed version: {version}\nLast Update: {update}",
+	"versionTitle": "Version",
+
+	"development": { 
+		"title": "Development",
+		"createdTitle": "Created by:",
+		"createdText": "Paulo Velho",
+		"codedTitle": "Coded in:",
+		"codedText": "Q3-2023",
+		"details": "Open source development using Flutter (Channel stable, 3.13.2, on Ubuntu 22.04.3 LTS 6.2.0-32-generic)",
+		"codeAvailableTitle": "Code avaiable at:",
+		"codeAvailableText": "github.com/paulovelho",
+		"rich": "*@:development.createdTitle* @:development.createdText \n*@:development.codedTitle* @:development.codedText \n@:development.details \n*@:development.codeAvailableTitle* @:development.codeAvailableText"
+	},
+
+	"contact": {
+		"title": "Contact",
+		"twitterTitle": "Twitter:",
+		"twitterText": "@paulovelho",
+		"emailTitle": "E-mail:",
+		"emailText": "gottaask@paulovelho.com",
+		"rich": "*@:contact.twitterTitle* @:contact.twitterText \n*@:contact.emailTitle* @:contact.emailText"
+	},
+
+	"endOfDeck": "No more cards!",
+	"reload": "Reload"
 }

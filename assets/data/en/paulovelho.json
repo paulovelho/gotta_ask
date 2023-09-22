@@ -1,8 +1,11 @@
 {
-	version: 1.1,
-	name: "paulovelho",
-	title: "Basic questions",
-	data: [
+	"version": 1.1,
+	"name": "paulovelho",
+	"title": "Basic questions",
+	"language": "en",
+	"active": 1,
+	"listed": 1,
+	"data": [
 "If you had to be a vegetable, which vegetable would you choose to be?",
 "If you had to be a fruit, which fruit would you choose to be?",
 "If you were a potato, how would you like to be eaten?",

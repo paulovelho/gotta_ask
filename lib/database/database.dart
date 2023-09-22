@@ -45,24 +45,28 @@ class DatabaseInstance extends _$DatabaseInstance {
     return await into(questionRow).insert(q);
   }
 
-  Future<List<Question>> getSome(List<int> packages, {int limit = 20}) async {
-    final query = select(questionRow)
+  Future<List<Question>> getSomeQuestions(List<int> packages,
+      {int limit = 20}) async {
+    var query = select(questionRow)
       ..where((q) => q.packageId.isIn(packages))
       ..orderBy([(q) => OrderingTerm.random()]);
+    if (limit > 0) {
+      query = query..limit(limit);
+    }
     return query.get();
   }
 
-  Future<List<Package>> getPackageList() async {
-    print("getting package list");
+  Future<List<Package>> getPackageList(String lang) async {
     return await (select(packageRow)
+          ..where((q) => q.language.equals(lang))
           ..orderBy([(p) => OrderingTerm(expression: p.name)]))
         .get();
   }
 
-  Future<List<int>> getActivePackageIds() {
+  Future<List<int>> getActivePackageIds(String language) {
     final query = select(packageRow, distinct: true)
       ..addColumns([packageRow.id])
-      ..where((p) => p.active.equals(true));
+      ..where((p) => p.active.equals(true) & p.language.equals(language));
     return query.map((p) => p.id).get();
   }
 

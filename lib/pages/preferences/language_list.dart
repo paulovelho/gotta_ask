@@ -1,7 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:gotta_ask/pages/shared/box-title.dart';
+import 'package:gotta_ask/deck_manager.dart';
+import 'package:gotta_ask/pages/shared/box_title.dart';
 import 'package:gotta_ask/state.dart';
+import 'package:gotta_ask/theme/form_decoration.dart';
 import 'package:provider/provider.dart';
 
 class LanguageFlipper extends StatefulWidget {
@@ -24,6 +26,8 @@ class _LanguageFlipper extends State<LanguageFlipper> {
           context.setLocale(Locale(value ?? "en"));
           state.setLanguage(value ?? "");
           _activeLanguage = value;
+          DeckManager.instance.clearPackageList();
+          DeckManager.instance.updateDeck();
         });
       },
     );
@@ -34,10 +38,18 @@ class _LanguageFlipper extends State<LanguageFlipper> {
     state = context.watch<AppState>();
     _activeLanguage = state.activeLanguage;
     return Column(
-      children: <Widget>[
-        const BoxTitle("languages"),
-        getLanguageRadio(context, "pt", "langPt".tr()),
-        getLanguageRadio(context, "en", "langEn".tr()),
+      children: [
+        BoxTitle(context.tr("languages")),
+        const SizedBox(height: 10),
+        Container(
+          decoration: FormTheme.formBoxDecoration(context),
+          child: Column(
+            children: <Widget>[
+              getLanguageRadio(context, "pt", "langPt".tr()),
+              getLanguageRadio(context, "en", "langEn".tr()),
+            ],
+          ),
+        )
       ],
     );
   }

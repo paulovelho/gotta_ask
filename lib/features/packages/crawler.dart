@@ -13,6 +13,10 @@ class PackageCrawler {
     "viagem",
     "wouldyou",
   ];
+  List<String> enPackages = [
+    "paulovelho",
+    "wouldyou",
+  ];
 
   Future<Map<String, dynamic>> parseJson(String jsonPath) async {
     print("---parsing $jsonPath");
@@ -45,6 +49,7 @@ class PackageCrawler {
   installLanguage(String lang) async {
     List<String> packages = [];
     if (lang == "pt") packages = ptPackages;
+    if (lang == "en") packages = enPackages;
     for (String pack in packages) {
       loadPackage(lang, pack);
     }

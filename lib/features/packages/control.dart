@@ -1,15 +1,10 @@
 import 'package:drift/drift.dart' as dr;
-import 'package:flutter/material.dart';
 import 'package:gotta_ask/features/packages/model.dart';
-import 'package:random_color/random_color.dart';
-
 import 'package:gotta_ask/database/database.dart';
+import 'package:gotta_ask/helpers.dart';
+import 'package:gotta_ask/state.dart';
 
 class PackageControl {
-  Color createRandomColor() => RandomColor()
-      .randomColor(colorBrightness: ColorBrightness.dark)
-      .withOpacity(1);
-
   String getUniqueName(String name, String lang) {
     return "$lang-$name";
   }
@@ -18,8 +13,13 @@ class PackageControl {
     return Database.instance.getDb();
   }
 
-  Future<List<int>> getPackageList() {
-    return db().getActivePackageIds();
+  Future<List<int>> getPackageIdsList({String? language}) async {
+    language ??= await AppState().getSavedLanguage();
+    return db().getActivePackageIds(language);
+  }
+
+  Future<List<Package>> getPackagesList(String language) {
+    return db().getPackageList(language);
   }
 
   Future<bool> isPackageInstalled(
@@ -42,7 +42,7 @@ class PackageControl {
     bool active,
     bool listed,
   ) async {
-    color = color ?? "#${createRandomColor().value.toRadixString(16)}";
+    color = color ?? "#${Helper.createRandomColor().value.toRadixString(16)}";
     String uniqueName = getUniqueName(name, lang);
     bool isInstalled = await isPackageInstalled(uniqueName, version);
     if (isInstalled) return 0;

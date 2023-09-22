@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gotta_ask/pages/deck/deck_shortcuts.dart';
-import 'package:gotta_ask/pages/deck/deck.dart';
+import 'package:gotta_ask/pages/deck/deck_page.dart';
 
 class CardPage extends StatelessWidget {
   const CardPage({
@@ -11,7 +11,7 @@ class CardPage extends StatelessWidget {
     return const Center(
       child: Padding(
           padding: EdgeInsets.all(26),
-          child: DeckShortcutsWidget(page: Deck())),
+          child: DeckShortcutsWidget(page: DeckPage())),
     );
   }
 }

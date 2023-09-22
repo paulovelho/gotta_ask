@@ -16,7 +16,7 @@ class DeckControlWidget extends State<DeckControl> {
   _openPreferences(BuildContext context) async {
     var res = await Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => Hero(
+        builder: (context) => const Hero(
           tag: "favorites",
           child: PreferencesPage(),
         ),

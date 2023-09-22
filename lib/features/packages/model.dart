@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:gotta_ask/helpers.dart';
+
 class Package {
   final int id;
   final String name;
@@ -21,5 +24,9 @@ class Package {
 
   String getRGB() {
     return color ?? "#000";
+  }
+
+  Color getColor() {
+    return Helper.colorFromHex(getRGB());
   }
 }
