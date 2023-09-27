@@ -1,24 +1,30 @@
-# gotta_ask
+# Gotta Ask
 
-A new Flutter project.
+My first flutter experiment =)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
 
 ## database files generation
 generate with `dart run build_runner build`
 keep dev with `dart run build_runner watch`
 
 
-## internationalization files generation
-`flutter gen-l10n`
+## generating android assets
+for splash screen:
+`dart run flutter_native_splash:create`
+for app icons:
+`dart run flutter_launcher_icons`
+
+## generating Android App:
+get your `.keystore` file (it's not here, for security reasons)
+
+to check the alias the keystore file uses, run `keytool -v -list -keystore platypus.keystore`
+create the `key.properties` file inside `android` folder (there's a sample, quite easy)
+to change app name and id: https://stackoverflow.com/a/51550358/22647495
+
+run with `flutter buld appbundle`
+generated app will be at `.../build/app/outputs/bundle/release`
+
+
+
+
+

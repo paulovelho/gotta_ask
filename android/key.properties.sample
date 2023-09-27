@@ -1,0 +1,4 @@
+storePassword=<keystore-password>
+keyPassword=<keystore-password>
+keyAlias=platypus
+storeFile=<keystore-file-location>

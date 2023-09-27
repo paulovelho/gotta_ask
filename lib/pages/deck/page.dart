@@ -10,8 +10,10 @@ class CardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Center(
       child: Padding(
-          padding: EdgeInsets.all(26),
-          child: DeckShortcutsWidget(page: DeckPage())),
+        padding: EdgeInsets.all(10),
+        child: DeckPage(),
+//          child: DeckShortcutsWidget(page: DeckPage()),
+      ),
     );
   }
 }

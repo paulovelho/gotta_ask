@@ -18,9 +18,13 @@ class AboutPage extends StatelessWidget {
         backgroundColor: Theme.of(context).primaryColor,
       ),
       backgroundColor: AppTheme.getScheme(context).onBackground,
-      body: const Padding(
-        padding: EdgeInsets.all(20),
-        child: AboutPageBody(),
+      body: ListView(
+        children: const [
+          Padding(
+            padding: EdgeInsets.all(20),
+            child: AboutPageBody(),
+          ),
+        ],
       ),
     );
   }

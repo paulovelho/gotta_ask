@@ -43,19 +43,9 @@ class DeckControlWidget extends State<DeckControl> {
             child: const Icon(Icons.rotate_left),
           ),
           FloatingActionButton(
-            heroTag: "left",
-            onPressed: controller.swipeLeft,
-            child: const Icon(Icons.keyboard_arrow_left),
-          ),
-          FloatingActionButton(
             heroTag: "right",
             onPressed: controller.swipeRight,
             child: const Icon(Icons.keyboard_arrow_right),
-          ),
-          FloatingActionButton(
-            heroTag: "top",
-            onPressed: controller.swipeUp,
-            child: const Icon(Icons.keyboard_arrow_up),
           ),
           FloatingActionButton(
             heroTag: "fav",

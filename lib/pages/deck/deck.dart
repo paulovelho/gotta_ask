@@ -69,7 +69,7 @@ class _DeckState extends State<Deck> {
         ),
         cardsSpacing: 20,
         unswipe: _onUndo,
-        isDisabled: state.swipeActive,
+        isDisabled: false,
         onEnd: _onEnd,
         cardsCount: cards.length,
         cardsBuilder: (BuildContext context, int index) {

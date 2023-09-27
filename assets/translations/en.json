@@ -7,7 +7,6 @@
 	"langEn": "English",
 	"packages": "Packages",
 	"viewDb": "View DB",
-
 	"about": "About",
 
 	"versionText": "Installed version: {version}\nLast Update: {update}",
